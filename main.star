@@ -1,6 +1,7 @@
 prometheus = import_module("github.com/kurtosis-tech/prometheus-package/main.star")
 grafana = import_module("github.com/kurtosis-tech/grafana-package/main.star")
 
+
 def run(
     plan, 
     l1_rpc_url="https://eth-mainnet.g.alchemy.com/jsonrpc/demo", 
@@ -8,7 +9,7 @@ def run(
     network="base-mainnet",
     sequencer_url="https://mainnet-sequencer.base.org",
 ):
-    """Runs OP Stack with Reth.
+    """Runs OP Stack with Reth using configuration from this guide: https://paradigmxyz.github.io/reth/run/optimism.html
 
     Args:
         l1_rpc_url(string): An archival L1 node, synced to the settlement layer of the OP Stack chain you want to sync (e.g. reth, geth, besu, nethermind, etc.)
@@ -41,7 +42,7 @@ def run(
         config=ServiceConfig(
             image=ImageBuildSpec(
                 image_name="op-reth:dev",
-                build_context_dir=".",
+                build_context_dir="./reth",
             ),
             entrypoint=["/bin/sh", "-c"],
             cmd=[" ".join(op_reth_cmd_list)],
