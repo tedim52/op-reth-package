@@ -4,7 +4,7 @@ grafana = import_module("github.com/kurtosis-tech/grafana-package/main.star")
 
 def run(
     plan, 
-    l1_rpc_url="https://eth-mainnet.g.alchemy.com/jsonrpc/demo", 
+    l1_rpc_url="https://eth-mainnet.g.alchemy.com/v2/3vveYz8SfRUomcFqcTrT6_S95iqQzx64", 
     chain="base",
     network="base-mainnet",
     sequencer_url="https://mainnet-sequencer.base.org",
@@ -40,31 +40,28 @@ def run(
     reth_node = plan.add_service(
         name="op-reth",
         config=ServiceConfig(
-            image=ImageBuildSpec(
-                image_name="op-reth:dev",
-                build_context_dir="./reth",
-            ),
+            image="tedim52/op-reth:latest",
             entrypoint=["/bin/sh", "-c"],
             cmd=[" ".join(op_reth_cmd_list)],
             ports={ 
-                "rpc": PortSpec(
-                    number=el_rpc_port_num,
-                    transport_protocol="TCP",
-                    application_protocol="http",
-                ),
-                "metrics": PortSpec(
-                    number=el_metrics_port_num,
-                    transport_protocol="TCP",
-                    application_protocol="http",
-                )
+                # "rpc": PortSpec(
+                #     number=el_rpc_port_num,
+                #     transport_protocol="TCP",
+                #     application_protocol="http",
+                # ),
+                # "metrics": PortSpec(
+                #     number=el_metrics_port_num,
+                #     transport_protocol="TCP",
+                #     application_protocol="http",
+                # )
             },
             files={
-                "/jwt/jwtsecret": jwt_file
+                "/jwt": jwt_file
             }
         )
     )
-    l2_rpc_url = "http://{0}:{1}".format(reth_node.hostname, reth_node.ports["rpc"].number)
-    reth_metrics_endpoint = "http://{0}:{1}".format(reth_node.hostname, reth_node.ports["metrics"].number)
+    # l2_rpc_url = "http://{0}:{1}".format(reth_node.hostname, reth_node.ports["rpc"].number)
+    # reth_metrics_endpoint = "http://{0}:{1}".format(reth_node.hostname, reth_node.ports["metrics"].number)
     
     # start op node
     cl_rpc_port_num = 7000
@@ -72,16 +69,17 @@ def run(
         "op-node",
         "--network=\"{0}\"".format(network),
         "--l1={0}".format(l1_rpc_url), 
-        "--l2={0}".format(l2_rpc_url), 
+        # "--l2={0}".format(l2_rpc_url), 
+        "--l2=http://localhost:9551",
         "--l2.jwt-secret=/jwt/jwtsecret", 
         "--rpc.addr=0.0.0.0",
         "--rpc.port={0}".format(cl_rpc_port_num),
-        "--l1.trustrp",
+        "--l1.trustrpc",
     ]
     plan.add_service(
         name="op-node",
         config=ServiceConfig(
-            image="us-docker.pkg.dev/oplabs-tools-artifacts/images/op-node:08f3dbed90faccb36135fc4bd1d40bfa8ed4066f",
+            image="us-docker.pkg.dev/oplabs-tools-artifacts/images/op-node:v1.7.3",
             entrypoint=["/bin/sh","-c"],
             cmd=[" ".join(op_node_cmd_list)],
             ports={ 
@@ -91,14 +89,22 @@ def run(
                     application_protocol="http",
                 )
             },
+            env_vars={
+                "NETWORK_NAME": network,
+                "NODE_TYPE": "archive",
+                "OP_NODE__RPC_ENDPOINT": l1_rpc_url,
+                "OP_NODE__L1_BEACON": "https://hardworking-sparkling-firefly.quiknode.pro/7ef4ff4201717e799198d57ab4ab548ba37b7191/",
+                "OP_NODE__RPC_TYPE": "quicknode",
+                "HEALTHCHECK__REFERENCE_RPC_PROVIDER": "https://mainnet.base.org/",
+            },
             files={
-                "/jwt/jwtsecret": jwt_file,
+                "/jwt": jwt_file,
             }
         ),
     )
     
-    # start prom and grafana with dashboards from https://github.com/paradigmxyz/reth/blob/main/etc/grafana/dashboards/overview.json
-    prometheus_url = prometheus.run(plan, metrics_jobs=[{"Name": "op-reth-metrics", "Endpoint": reth_metrics_endpoint }])
-    grafana.run(plan, prometheus_url, "github.com/paradigmxyz/reth/etc/grafana/dashboards")
+    # # start prom and grafana with dashboards from https://github.com/paradigmxyz/reth/blob/main/etc/grafana/dashboards/overview.json
+    # prometheus_url = prometheus.run(plan, metrics_jobs=[{"Name": "op-reth-metrics", "Endpoint": reth_metrics_endpoint }])
+    # grafana.run(plan, prometheus_url, "github.com/paradigmxyz/reth/etc/grafana/dashboards")
 
 
