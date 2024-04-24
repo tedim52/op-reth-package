@@ -103,7 +103,7 @@ def run(
     )
     
     # start prom and grafana with dashboards from https://github.com/paradigmxyz/reth/blob/main/etc/grafana/dashboards/overview.json
-    prometheus_url = prometheus.run(plan, metrics_jobs=[{"Name": "op-reth-metrics", "Endpoint": reth_metrics_endpoint }], name="prom", min_cpu=0)
+    prometheus_url = prometheus.run(plan, metrics_jobs=[{"Name": "op-reth-metrics", "Endpoint": reth_metrics_endpoint, "MetricsPath": "/" }], name="prom", min_cpu=0)
     grafana.run(plan, prometheus_url, "github.com/paradigmxyz/reth/etc/grafana/dashboards")
 
 
