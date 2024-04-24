@@ -7,15 +7,16 @@ def run(
     chain="base",
     network="base-mainnet",
     l1_rpc_url="https://eth-mainnet.g.alchemy.com/v2/3vveYz8SfRUomcFqcTrT6_S95iqQzx64", 
-    l1_beacon_url="https://hardworking-sparkling-firefly.quiknode.pro/7ef4ff4201717e799198d57ab4ab548ba37b7191/"
+    l1_beacon_url="https://hardworking-sparkling-firefly.quiknode.pro/7ef4ff4201717e799198d57ab4ab548ba37b7191/",
     sequencer_url="https://mainnet-sequencer.base.org",
 ):
     """Runs OP Stack with Reth using configuration from this guide: https://paradigmxyz.github.io/reth/run/optimism.html
 
     Args:
-        l1_rpc_url(string): An archival L1 node, synced to the settlement layer of the OP Stack chain you want to sync (e.g. reth, geth, besu, nethermind, etc.)
         chain(string): Chain that op-reth will start. Defaults to base
         network(string): Name network that op node will connect to. Defaults to base-mainnet
+        l1_rpc_url(string): An archival L1 node, synced to the settlement layer of the OP Stack chain you want to sync (e.g. reth, geth, besu, nethermind, etc.) Eg. Alchemy Node on free plan
+        l1_beacon_url(string): An L1 Beacon endpoint. eg. Quicknode beacon node
         sequencer_url(string): The sequencer endpoint to connect to. Transactions sent to the op-reth EL are forwarded to this sequencer endpoint for inclusion, as sequencer is the entity that builds blocks on OP Stack chains. Defaults to https://mainnet-sequencer.base.org
     """
     # use same jwtsecret from ethereum-package: https://github.com/kurtosis-tech/ethereum-package/blob/9139f4b4c77bc43477740972512171d7f28bfa84/static_files/jwt/jwtsecret
@@ -33,11 +34,13 @@ def run(
         "--chain {0}".format(chain),
         "--rollup.sequencer-http {0}".format(sequencer_url), 
         "--http",
+        "--http.addr=0.0.0.0",
         "--ws",
+        "--ws.addr=0.0.0.0",
         "--authrpc.port {0}".format(el_rpc_port_num),
         "--authrpc.addr=0.0.0.0",
         "--authrpc.jwtsecret /jwt/jwtsecret", 
-        "--metrics 127.0.0.1:{0}".format(el_metrics_port_num),
+        "--metrics 0.0.0.0:{0}".format(el_metrics_port_num),
     ]
     reth_node = plan.add_service(
         name="op-reth",
@@ -48,12 +51,12 @@ def run(
             ports={ 
                 "rpc": PortSpec(
                     number=el_rpc_port_num,
-                    transport_protocol="UDP",
+                    transport_protocol="TCP", 
                     application_protocol="http",
                 ),
                 "metrics": PortSpec(
                     number=el_metrics_port_num,
-                    transport_protocol="UDP",
+                    transport_protocol="TCP",                     
                     application_protocol="http",
                 )
             },
