@@ -45,7 +45,9 @@ def run(
     reth_node = plan.add_service(
         name="op-reth",
         config=ServiceConfig(
-            image="tedim52/op-reth:latest",
+            # currently uses custom built image of op reth based
+            # TODO: add ability to build image from latest op-reth changes using ImageBuildSpec
+            image="tedim52/op-reth:latest", 
             entrypoint=["/bin/sh", "-c"],
             cmd=[" ".join(op_reth_cmd_list)],
             ports={ 
