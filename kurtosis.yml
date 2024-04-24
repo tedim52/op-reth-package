@@ -4,14 +4,18 @@ description: |
   ========
   Runs OP Stack with Reth using configuration from this guide: https://paradigmxyz.github.io/reth/run/optimism.html
 
+
   Prerequisites
   -------------
+  
   You'll need an an L1 archival node endpoint and an L1 beacon node endpoint. 
+
 
   Configuration
   -------------
-  chain: Chain that op-reth will start. Defaults to base
-  network: Name network that op node will connect to. Defaults to base-mainnet
-  l1_rpc_url: An archival L1 node, synced to the settlement layer of the OP Stack chain you want to sync (e.g. reth, geth, besu, nethermind, etc.) Eg. Alchemy Node on free plan
-  l1_beacon_url: An L1 Beacon endpoint. eg. Quicknode beacon node
-  sequencer_url: The sequencer endpoint to connect to. Transactions sent to the op-reth EL are forwarded to this sequencer endpoint for inclusion, as sequencer is the entity that builds blocks on OP Stack chains. Defaults to https://mainnet-sequencer.base.org
+
+  - chain: Chain that op-reth will start. Defaults to base
+  - network: Name network that op node will connect to. Defaults to base-mainnet
+  - l1_rpc_url: An archival L1 node, synced to the settlement layer of the OP Stack chain you want to sync (e.g. reth, geth, besu, nethermind, etc.) Eg. Alchemy Node on free plan
+  - l1_beacon_url: An L1 Beacon endpoint. eg. Quicknode beacon node
+  - sequencer_url: The sequencer endpoint to connect to. Transactions sent to the op-reth EL are forwarded to this sequencer endpoint for inclusion, as sequencer is the entity that builds blocks on OP Stack chains. Defaults to https://mainnet-sequencer.base.org
