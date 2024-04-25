@@ -62,7 +62,7 @@ def run(
                     number=el_rpc_port_num,
                     transport_protocol="TCP",
                     application_protocol="http",
-                )
+                ),
                 "metrics": PortSpec(
                     number=el_metrics_port_num,
                     transport_protocol="TCP",                     
