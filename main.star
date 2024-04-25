@@ -26,7 +26,8 @@ def run(
     )
 
     # start op-reth
-    el_rpc_port_num = 9551
+    el_authrpc_port_num = 9551
+    el_rpc_port_num = 8545
     el_metrics_port_num = 9001
     op_reth_cmd_list = [
         "op-reth",
@@ -35,9 +36,10 @@ def run(
         "--rollup.sequencer-http {0}".format(sequencer_url), 
         "--http",
         "--http.addr=0.0.0.0",
+        "--http.port={0}".format(el_rpc_port_num),
         "--ws",
         "--ws.addr=0.0.0.0",
-        "--authrpc.port {0}".format(el_rpc_port_num),
+        "--authrpc.port {0}".format(el_authrpc_port_num),
         "--authrpc.addr=0.0.0.0",
         "--authrpc.jwtsecret /jwt/jwtsecret", 
         "--metrics 0.0.0.0:{0}".format(el_metrics_port_num),
@@ -51,11 +53,16 @@ def run(
             entrypoint=["/bin/sh", "-c"],
             cmd=[" ".join(op_reth_cmd_list)],
             ports={ 
-                "rpc": PortSpec(
-                    number=el_rpc_port_num,
+                "authrpc": PortSpec(
+                    number=el_authrpc_port_num,
                     transport_protocol="TCP", 
                     application_protocol="http",
                 ),
+                "rpc": PortSpec(
+                    number=el_rpc_port_num,
+                    transport_protocol="TCP",
+                    application_protocol="http",
+                )
                 "metrics": PortSpec(
                     number=el_metrics_port_num,
                     transport_protocol="TCP",                     
