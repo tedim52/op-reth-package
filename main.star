@@ -37,6 +37,10 @@ def run(
         "--http",
         "--http.addr=0.0.0.0",
         "--http.port={0}".format(el_rpc_port_num),
+        "--http.corsdomain=*",
+        # WARNING: The admin info endpoint is enabled so that we can easily get ENR/enode, which means
+        #  that users should NOT store private information in these Kurtosis nodes!
+        "--http.api=admin,net,eth,web3,debug,trace",
         "--ws",
         "--ws.addr=0.0.0.0",
         "--authrpc.port {0}".format(el_authrpc_port_num),
