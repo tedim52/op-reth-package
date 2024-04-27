@@ -39,7 +39,7 @@ def run(
         "--http.port={0}".format(el_rpc_port_num),
         "--http.corsdomain=*",
         # WARNING: The admin info endpoint is enabled so that we can easily get ENR/enode, which means
-        #  that users should NOT store private information in these Kurtosis nodes!
+        #  that users should NOT store private information in Kurtosis nodes!
         "--http.api=admin,net,eth,web3,debug,trace",
         "--ws",
         "--ws.addr=0.0.0.0",
@@ -79,7 +79,7 @@ def run(
         )
     )
     l2_rpc_url = "http://{0}:{1}".format(reth_node.name, reth_node.ports["rpc"].number)
-    reth_metrics_endpoint = "{0}:{1}".format(reth_node.name, reth_node.ports["metrics"].number)
+    reth_metrics_endpoint = "{0}:{1}".format(reth_node.ip_address, reth_node.ports["metrics"].number)
     
     # start op node
     cl_rpc_port_num = 7000
@@ -114,7 +114,7 @@ def run(
     )
     
     # start prom and grafana with dashboards from https://github.com/paradigmxyz/reth/blob/main/etc/grafana/dashboards/overview.json
-    prometheus_url = prometheus.run(plan, metrics_jobs=[{"Name": "op-reth-metrics", "Endpoint": reth_metrics_endpoint, "MetricsPath": "/" }], name="prom", min_cpu=0)
+    prometheus_url = prometheus.run(plan, metrics_jobs=[{"Name": "op-reth-metrics", "Endpoint": reth_metrics_endpoint, "MetricsPath": "/metrics" }], name="prom", min_cpu=0)
     grafana.run(plan, prometheus_url, "github.com/paradigmxyz/reth/etc/grafana/dashboards")
 
 
