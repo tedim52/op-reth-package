@@ -48,7 +48,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -99,7 +99,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "max by (version)(eth_exe_web3_client_version{instance=~\"$instance\"})",
@@ -114,7 +114,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -162,7 +162,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_con_spec_config_name{instance=~\"$instance\"}",
@@ -177,7 +177,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -225,7 +225,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_con_fork_current{instance=~\"$instance\"}",
@@ -240,7 +240,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -291,7 +291,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "max by (version)(eth_con_node_version{instance=~\"$instance\"})",
@@ -306,7 +306,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -357,7 +357,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_exe_chain_id{instance=~\"$instance\"}",
@@ -372,7 +372,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -423,7 +423,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_exe_network_id{instance=~\"$instance\"}",
@@ -438,7 +438,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -486,7 +486,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_con_spec_preset_base{instance=~\"$instance\"}",
@@ -518,7 +518,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -584,7 +584,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_con_sync_is_syncing{instance=~\"$instance\"}",
@@ -599,7 +599,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -677,7 +677,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_con_sync_percentage{instance=~\"$instance\"}",
@@ -692,7 +692,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -769,7 +769,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "editorMode": "code",
             "exemplar": true,
@@ -786,7 +786,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -863,7 +863,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_con_beacon_finality_checkpoint_epochs{instance=~\"$instance\", state_id=\"head\", checkpoint!=\"previous_justified\"}",
@@ -878,7 +878,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -956,7 +956,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "sum by (instance)(\n    eth_con_beacon_finality_checkpoint_epochs{instance=~\"$instance\", checkpoint=\"justified\", state_id=\"head\"}\n)\n-\nsum by (instance)(\n    eth_con_beacon_finality_checkpoint_epochs{instance=~\"$instance\", checkpoint=\"finalized\", state_id=\"head\"}\n)",
@@ -968,7 +968,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "sum by (instance)(\n    eth_con_beacon_finality_checkpoint_epochs{instance=~\"$instance\", checkpoint=\"justified\", state_id=\"head\"}\n)\n-\nsum by (instance)(\n    eth_con_beacon_finality_checkpoint_epochs{instance=~\"$instance\", checkpoint=\"previous_justified\", state_id=\"head\"}\n)",
@@ -984,7 +984,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -1062,7 +1062,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_con_sync_distance{instance=~\"$instance\"}",
@@ -1077,7 +1077,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -1155,7 +1155,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "editorMode": "code",
             "exemplar": false,
@@ -1173,7 +1173,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -1250,7 +1250,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "editorMode": "code",
             "exemplar": true,
@@ -1267,7 +1267,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -1345,7 +1345,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "editorMode": "code",
             "exemplar": true,
@@ -1358,7 +1358,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "editorMode": "code",
             "exemplar": true,
@@ -1372,7 +1372,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "editorMode": "code",
             "exemplar": true,
@@ -1390,7 +1390,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -1467,7 +1467,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_con_beacon_transactions{instance=~\"$instance\", block_id=\"head\"}",
@@ -1478,7 +1478,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_con_beacon_slashings{instance=~\"$instance\", block_id=\"head\", type=\"proposer\"}",
@@ -1490,7 +1490,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_con_beacon_slashings{instance=~\"$instance\", block_id=\"head\", type=\"attester\"}",
@@ -1502,7 +1502,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_con_beacon_attestations{instance=~\"$instance\",block_id=\"head\"}",
@@ -1514,7 +1514,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_con_beacon_deposits{instance=~\"$instance\",block_id=\"head\"}",
@@ -1526,7 +1526,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_con_beacon_voluntary_exits{instance=~\"$instance\",block_id=\"head\"}",
@@ -1542,7 +1542,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -1621,7 +1621,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "editorMode": "code",
             "exemplar": true,
@@ -1639,7 +1639,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -1711,7 +1711,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "editorMode": "code",
             "exemplar": false,
@@ -1728,7 +1728,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -1818,7 +1818,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "editorMode": "code",
             "exemplar": true,
@@ -1831,7 +1831,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "editorMode": "code",
             "exemplar": true,
@@ -1845,7 +1845,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "editorMode": "code",
             "exemplar": true,
@@ -1863,7 +1863,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -1940,7 +1940,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "editorMode": "code",
             "exemplar": true,
@@ -1957,7 +1957,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -2035,7 +2035,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "editorMode": "code",
             "exemplar": true,
@@ -2053,7 +2053,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -2130,7 +2130,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_con_fork_epoch{instance=~\"$instance\", fork!=\"SHARDING\"}",
@@ -2163,7 +2163,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -2228,7 +2228,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_exe_sync_is_syncing{instance=~\"$instance\"}",
@@ -2243,7 +2243,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -2320,7 +2320,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_exe_sync_percentage{instance=~\"$instance\"}",
@@ -2335,7 +2335,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -2412,7 +2412,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_exe_block_most_recent_number{instance=~\"$instance\"}",
@@ -2427,7 +2427,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -2504,7 +2504,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_exe_net_peer_count{instance=~\"$instance\"}",
@@ -2519,7 +2519,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -2596,7 +2596,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "sum by (instance)(\n    eth_exe_block_head_total_difficulty_trillions{instance=~\"$instance\"}\n)",
@@ -2611,7 +2611,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -2688,7 +2688,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_exe_sync_highest_block{instance=~\"$instance\"} - eth_exe_sync_current_block{instance=~\"$instance\"}",
@@ -2703,7 +2703,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -2780,7 +2780,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "sum by (instance)(rate(eth_exe_sync_percentage{instance=~\"$instance\"}[1m]))",
@@ -2795,7 +2795,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -2872,7 +2872,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_exe_gas_price_gwei{instance=~\"$instance\"}",
@@ -2887,7 +2887,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -2964,7 +2964,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "editorMode": "code",
             "exemplar": true,
@@ -2981,7 +2981,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -3057,7 +3057,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "editorMode": "code",
             "exemplar": true,
@@ -3074,7 +3074,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -3151,7 +3151,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "editorMode": "code",
             "exemplar": true,
@@ -3168,7 +3168,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -3245,7 +3245,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "editorMode": "code",
             "exemplar": true,
@@ -3262,7 +3262,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -3339,7 +3339,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_exe_block_head_gas_used{instance=~\"$instance\"}",
@@ -3354,7 +3354,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$datasource"
+          "uid": "Prometheus"
         },
         "fieldConfig": {
           "defaults": {
@@ -3431,7 +3431,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "exemplar": true,
             "expr": "eth_exe_block_head_gas_limit{instance=~\"$instance\"}",
@@ -3460,7 +3460,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "$datasource"
+              "uid": "Prometheus"
             },
             "fieldConfig": {
               "defaults": {
@@ -3512,7 +3512,7 @@
               {
                 "datasource": {
                   "type": "prometheus",
-                  "uid": "$datasource"
+                  "uid": "Prometheus"
                 },
                 "exemplar": false,
                 "expr": "sum by (spec)(\n    label_replace(\n        {__name__=~\"eth_con_spec.*\", instance=~\"$instance\"},\n        \"spec\",\n        \"$1\",\n        \"__name__\",\n        \"eth_con_spec_(.*)\"\n    )\n)",
@@ -3545,7 +3545,7 @@
           },
           "datasource": {
             "type": "prometheus",
-            "uid": "$datasource"
+            "uid": "Prometheus"
           },
           "definition": "label_values(eth_con_beacon_slot, instance)",
           "hide": 0,
